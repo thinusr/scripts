@@ -1,50 +1,70 @@
-This script launches WezTerm running Neovim and automatically opens the Telescope fuzzy file finder (find_files()).
+# Neovim Fuzzy Finder Script (Kitty + Telescope)
 
-## Requirements:
+This script launches a new Kitty terminal, runs Neovim inside it, and automatically opens the Telescope fuzzy file finder (`find_files()`).
 
-- WezTerm terminal emulator installed
-    
-- Neovim installed with the telescope.nvim plugin configured
-    
+## Requirements
+
+- [Kitty](https://sw.kovidgoyal.net/kitty/) terminal emulator
+- [Neovim](https://neovim.io/) with [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) installed and configured
 - Bash shell
-    
 
-## Installation:
+## Installation
 
-1. Save the script as nvim-fuzzy.sh (for example, in ~/scripts/).
-    
-2. Make it executable with: chmod +x ~/scripts/nvim-fuzzy.sh
-    
-3. (Optional) Add ~/scripts to your PATH by adding this line to your ~/.bashrc or ~/.zshrc:
-    
-    export PATH="$HOME/scripts:$PATH"
-    
+1. Save the script as `nvim-fuzzy.sh` (e.g., in `~/scripts/`):
+2. Make it executable:
 
-## What it does:
+   ```bash
+   chmod +x ~/scripts/nvim-fuzzy.sh
+   ```
 
-When run, this script opens a new WezTerm window, launches Neovim inside it, and immediately triggers Telescope's find_files picker so you can start fuzzy searching files right away.
+3. *(Optional)* Add `~/scripts` to your `PATH` by adding this line to your `~/.bashrc` or `~/.zshrc`:
 
-Example i3 keybinding:
+   ```bash
+   export PATH="$HOME/scripts:$PATH"
+   ```
 
-Add the following line to your i3 config (~/.config/i3/config) to bind Mod+Shift+N to run the script:
+## What It Does
 
+When executed, the script:
+
+- Opens a new Kitty terminal window.
+- Launches Neovim inside that window.
+- Immediately runs Telescope's `find_files()` picker so you can start fuzzy searching your files.
+
+## Example i3 Keybinding
+
+To bind `Mod+Shift+N` to this script in i3, add the following to your i3 config (`~/.config/i3/config`):
+
+```bash
 bindsym Mod4+Shift+n exec --no-startup-id ~/scripts/nvim-fuzzy.sh
+```
 
-Then reload i3 with Mod+Shift+R.
+Then reload i3 with `Mod+Shift+R`.
 
-## Customization:
+## Customization
 
-If you want to use a different Telescope picker, edit the command inside the script from
+To use a different Telescope picker, edit the script and change:
 
+```bash
 nvim -c 'lua require("telescope.builtin").find_files()'
+```
 
-to another picker like live_grep(), buffers(), or git_files().
+to:
 
-Example script content (nvim-fuzzy.sh):
+```bash
+nvim -c 'lua require("telescope.builtin").live_grep()'
+```
 
-#!/bin/bash  
-wezterm start -- bash -c "nvim -c 'lua require("telescope.builtin").find_files()'"
+Or choose from other pickers like `buffers()`, `git_files()`, etc.
 
-## License:
+## Example Script: `nvim-fuzzy.sh`
+
+```bash
+#!/bin/bash
+kitty bash -c "nvim -c 'lua require(\"telescope.builtin\").find_files()'"
+```
+
+## License
 
 MIT License
+
