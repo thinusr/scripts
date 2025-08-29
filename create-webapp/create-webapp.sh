@@ -37,4 +37,3 @@ Categories=WebApp;
 EOF
 
 echo "✅ Webapp '$NAME' created. You’ll find it in your app launcher or with dmenu."
-
