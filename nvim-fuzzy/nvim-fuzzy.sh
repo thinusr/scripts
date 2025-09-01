@@ -4,8 +4,7 @@
 
 # List of terminals in order of preference
 TERMINALS=(
-    "alacritty -e"
-    "kitty bash -c"
+    "kitty bash -c \"nvim +':Telescope find_files'\""
     "gnome-terminal --"
     "konsole -e"
     "terminator -e"
