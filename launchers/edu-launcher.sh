@@ -16,7 +16,7 @@ window {
     width: 250px;
 }
 listview {
-    lines: 5;
+    lines: 9;
     fixed-height: true;
 }
 element-text {
