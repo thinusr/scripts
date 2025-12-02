@@ -25,7 +25,7 @@ Built to be simple, reliable, and completely under your control.
 
 -   Script location:
 
-        ~/scripts/bing-wallpaper.sh
+        ~/scripts/bing-wallpaper/bing-wallpaper.sh
 
 -   Wallpaper archive:
 
@@ -77,7 +77,7 @@ Make it executable:
 
 Run the script once to verify everything works:
 
-    ~/scripts/bing-wallpaper.sh
+    ~/scripts/bing-wallpaper/bing-wallpaper.sh
 
 Expected result: - Both monitors update - No Nitrogen window opens -
 Image is saved for restore
@@ -92,7 +92,7 @@ Edit your crontab:
 
 Add:
 
-    0 6 * * * DISPLAY=:0 /home/thinus/scripts/bing-wallpaper.sh
+    0 6 * * * DISPLAY=:0 /home/thinus/scripts/bing-wallpaper/bing-wallpaper.sh
 
 This downloads and applies the new Bing wallpaper every morning at
 06:00.
