@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Variables
-BACKUP_DIR="/media/backup/backups"
+BACKUP_DIR="/mnt/external/backups"
 DATE=$(date +'%Y-%m-%d_%H-%M-%S')
 LATEST="$BACKUP_DIR/latest"
 SNAPSHOT="$BACKUP_DIR/$DATE"
